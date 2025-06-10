@@ -1,0 +1,215 @@
+/*******************
+LAYOUT - FOUNDATION
+*******************/
+
+:root {
+  /* Base Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #CCCBEA;
+
+  /* Highlights and Accents */
+  --color-accent-primary: #D0B2FF; /* Lavender highlight */
+  --color-accent-warm: #FBBF24;    /* Complementary warm yellow */
+
+  /* Optional semantic aliases (if needed) */
+  --color-highlight: var(--color-accent-primary);
+  --color-warning: var(--color-accent-warm);
+}
+
+/*******************
+LAYOUT - FOUNDATION
+*******************/
+
+* {
+    box-sizing: border-box;
+}
+
+/* Establece el tamaño de fuente base para REMs en el elemento raíz (html) */
+html {
+    font-size: 16px; /* 1rem = 16px. Cambia esto para escalar todo proporcionalmente */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background: #1A1126;
+    color: white;
+    text-align: center;
+    display: flex; /* Mantiene el body como flex para centrar #Wrap */
+    justify-content: center;
+    align-items: center;
+}
+
+#Wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Sigue siendo 100% de la altura del body */
+  max-height: 36rem; /* 564px / 16 = 35.25rem. 36 porque da error. Esto es un buen ejemplo para mantener un contenedor con un tamaño máximo fijo */
+  z-index: 9;
+  position: relative;
+}
+
+header {
+  flex-shrink: 0;
+  padding: 1rem; /* 16px / 16 = 1rem */
+}
+
+main {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+footer {
+  flex-shrink: 0;
+  padding: 1rem; /* 16px / 16 = 1rem */
+  width: 100%;
+}
+
+/*******************
+LAYOUT - CONTENT
+*******************/
+
+.container {
+    max-width: 75rem; /* 1200px / 16 = 75rem */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0 1.25rem; /* 20px / 16 = 1.25rem */
+}
+
+.Header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem; /* 32px / 16 = 2rem */
+}
+
+.Header__Container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/*******
+DETAILS
+*******/
+
+#Logo {
+    background: url('./img/Army-of-Me__Logo.svg') no-repeat center center;
+    width: 13.625rem; /* 218px / 16 = 13.625rem */
+    height: 2.25rem;  /* 36px / 16 = 2.25rem */
+    background-size: cover;
+    text-indent: -99999999rem;
+    font-size: 0;
+}
+
+/* Desktop */
+
+.Content__Title {
+    font-size: 4.25rem; /* 68px / 16 = 4.25rem */
+    line-height: 4.75rem; /* 76px / 16 = 4.75rem */
+    letter-spacing: -0.078125rem; /* -1.25px / 16 = -0.078125rem */
+    font-weight: 700;
+}
+
+.Content__SubTitle {
+    font-size: 1.25rem; /* 20px / 16 = 1.25rem */
+    line-height: 2rem; /* 32px / 16 = 2rem */
+    letter-spacing: 0.03125rem; /* 0.5px / 16 = 0.03125rem */
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
+.Content__CTAContent {
+    font-size: 1rem; /* 16px / 16 = 1rem */
+    line-height: 2rem; /* 32px / 16 = 2rem */
+    letter-spacing: 0.03125rem; /* 0.5px / 16 = 0.03125rem */
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
+.Text__Complementary {
+    color: var(--color-accent-warm);
+}
+
+.Text__HighLight {
+    color: var(--color-highlight);
+}
+
+.Content__SubTitle--Mobile {
+    display: none;
+}
+
+/* BCK */
+
+#vanta-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/****************************************
+  MEDIA QUERIES - TABLET (DESKTOP FIRST)
+****************************************/
+@media (max-width: 750px) {
+    /* Al usar REMs, puedes ajustar el tamaño base de la fuente HTML
+       y todos los tamaños basados en REM se escalarán automáticamente. */
+    html {
+        font-size: 14px; /* O el tamaño que consideres adecuado para pantallas pequeñas */
+        /* Esto hará que 1rem sea 14px aquí, escalando todo el diseño */
+    }
+
+    body {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Puedes seguir haciendo ajustes específicos si es necesario,
+       pero muchos se ajustarán solos con el cambio de font-size en html */
+    .Content__Title {
+        /* Puedes seguir reduciendo más si es necesario para este breakpoint */
+        font-size: 3rem; /* Por ejemplo, 3rem de los 14px base = 42px */
+        line-height: 3.5rem;
+    }
+
+    .Content__SubTitle {
+        font-size: 1rem; /* 1rem de los 14px base = 14px */
+        line-height: 1.5rem;
+    }
+
+    #Logo {
+        width: 10rem; /* 10rem de los 14px base = 140px */
+        height: 1.625rem; /* 1.625rem de los 14px base = ~22.75px */
+    }
+
+    /* Asegúrate de que el padding del contenedor se vea bien en móviles */
+    .container {
+        padding: 0 1rem; /* Un poco menos de padding en los lados */
+    }
+}
+
+/****************************************
+  MEDIA QUERIES - SMALL MOBILE (DESKTOP FIRST)
+****************************************/
+@media (max-width: 480px) {
+    .Content__SubTitle--Mobile {
+        display: block;
+    }
+
+    .Content__SubTitle--Desktop {
+        display: none;
+    }
+}
